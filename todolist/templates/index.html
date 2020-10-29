@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>TodoApp - Create A Todo With Django</title>
-  {% load static %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-<div django-app="TaskManager">        
-    <div class="container">
-            <div class="content">
-            <h1>TodoApp</h1>
-            <p class="tagline">By Dishen</p>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Todo App
+{% endblock title %}
+
+{% block content %}
             <form action="" method="post">
             {% csrf_token %} <!-- csrf token for basic security -->
                 <div class="inputContainer">
@@ -38,6 +29,9 @@
                     <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
                     <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
                 </div>
+                <div class="row">
+                    <h5>{{error}}</h5>
+                </div>
             <ul class="taskList">
             {% for todo in todos %} <!-- django template lang - for loop -->
                 <li class="taskItem">
@@ -49,9 +43,4 @@
             {% endfor %}
             </ul><!-- taskList -->
             </form>
-            </div><!-- content -->
- </div><!-- container -->
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-</html>
+{% endblock %}
