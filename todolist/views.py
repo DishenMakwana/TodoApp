@@ -18,6 +18,11 @@ def index(request): #the index view
         if request.method == "POST":  # checking if the request method is a POST
 
             if "taskAdd" in request.POST:  # checking if there is a request to add a todo
+
+                if request.POST["description"] == "" or str(request.POST["date"]) == "" or request.POST["category_select"] == "":
+                    error = "Please enter All Data Field properly"
+                    return render(request,"index.html", { "todos":todos, "categories":categories, "error":error })
+
                 title = request.POST["description"]  # title
                 date = str(request.POST["date"])  # date
                 category = request.POST["category_select"]  # category
@@ -34,7 +39,7 @@ def index(request): #the index view
                 checkedlist = request.POST.get("checkedbox")  # checked todos to be deleted
 
                 if checkedlist is None:
-                    error = "Please select task you want to delete"
+                    error = "Please select the task, you want to delete"
                     return render(request,"index.html",{"todos":todos, "categories":categories, "error":error})
 
                 for todo_id in checkedlist:

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'tu!tn9%=avd2f_#v1-f5xjuxv3$&p_4ztinryhpp60j@_gluy4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['dishenmakwana.pythonanywhere.com']
+ALLOWED_HOSTS = ['dishenmakwana.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/kolkata'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
