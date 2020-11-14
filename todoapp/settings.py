@@ -124,3 +124,13 @@ STATIC_URL = '/todolist/static/'
 STATIC_ROOT = '/todolist/static'
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Password Reset Email Details
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'demo.django.dd@gmail.com'
+DEFAULT_FROM_EMAIL = 'demo.django.dd@gmail.com'
+SERVER_EMAIL = 'demo.django.dd@gmail.com'
+EMAIL_HOST_PASSWORD = 'demo@django'
