@@ -15,19 +15,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','tu!tn9%=avd2f_#v1-f5xjuxv3$&p_4ztinryhpp60j@_gluy4')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'tu!tn9%=avd2f_#v1-f5xjuxv3$&p_4ztinryhpp60j@_gluy4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
-
+ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -39,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todolist',
+    'gmailapi_backend',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todoapp.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -82,7 +82,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -102,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -116,7 +114,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -126,11 +123,18 @@ STATIC_ROOT = '/todolist/static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password Reset Email Details
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
 EMAIL_HOST_USER = 'demo.django.dd@gmail.com'
 DEFAULT_FROM_EMAIL = 'demo.django.dd@gmail.com'
 SERVER_EMAIL = 'demo.django.dd@gmail.com'
 EMAIL_HOST_PASSWORD = 'demo@django'
+
+EMAIL_BACKEND = 'gmailapi_backend.mail.GmailBackend'
+
+GMAIL_API_CLIENT_ID = '20177494541-8fvv19nj1bmbra7ijf4o3nkf4vufdbm0.apps.googleusercontent.com'
+GMAIL_API_CLIENT_SECRET = 'OzUdx81C2HaUUdXyUpLTp7Qv'
+GMAIL_API_REFRESH_TOKEN = '1//0g1QCMh9-M3NBCgYIARAAGBASNwF-L9IrduJ3YIqOx0fOd9Gt9sfPKSQwAB9irAIcOqokzWGKESkYN69ukATyJzPyuKKESBkEe6c'
+GMAIL_API_ACCESS_TOKEN = 'ya29.a0AfH6SMB6nySOFvgFCgz5T-bYaHrstlleUZpzyQZcV30Mce0VYB9w9iKNkBJ5_Mul-RN0Uyar5BWKBWExguJwh50VvfKhgMjdLFSPhCgXotMdpXa-S96zvsTO-rzhHzjmIPFQllTdPGdOhQKvXPW22mwUypn7ZOIkoIZhvEdlpMA'

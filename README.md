@@ -1,7 +1,7 @@
 # TodoApp
 ## view website on : 
 
-Website is made using the Django frame work which is the widly used frame work to develop the website using python.
+Website is made using the Django frame work which is the widely used frame work to develop the website using python.
 
 
 website is the part of our acadamics and it is still in the developing phase. So website is not available at any domain,  but it can be easily seen on your local computer. 
@@ -11,7 +11,7 @@ website is the part of our acadamics and it is still in the developing phase. So
   * view how to fork on this webiste https://guides.github.com/activities/forking/
   
   
-* run the server on local machine and paste the url into your prefered browser if don't know django see below
+* run the server on local machine and paste the url into your preferred browser if don't know django see below
 
 
 ## Django

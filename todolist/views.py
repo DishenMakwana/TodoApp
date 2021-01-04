@@ -73,7 +73,7 @@ def register(request):
             login(request, user)
 
             subject = 'Welcome to TodoList World'
-            message = 'Hi {}, thank you for registering in TodoList. Your can now explore our todolist anytime and anywhere threw web services.'.format(username)
+            message = 'Hi {}, thank you for registering in TodoList. Your can now explore our todolist anytime and anywhere threw web services. \n\n https://todoapp-dm.herokuapp.com/'.format(username)
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [user.email, ]
             send_mail(subject, message, email_from, recipient_list)
